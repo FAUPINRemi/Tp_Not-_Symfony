@@ -7,7 +7,7 @@
 - Dans la console au niveau de /gestion_reservation (a la racine du projet)  taper la commande : ``` symfony server:start```
 - Une fois le projet démarré tapé l'url : *http://127.0.0.8:8000/register* et creer sont user (pr defaut il aura le role ROLE_USER) pour lui appliquer le role ROLE_ADMIN il faudras le modifier dans la base de donnée
 - Ensuite aller sur *http://127.0.0.8:8000/login* et se connecter
-
+- pour se déconnecter taper l'url : *http://127.0.0.8:8000/logout*
 
 ## Les routes disnponibles sont : 
 
@@ -27,5 +27,15 @@
 - /admin/reservation/edit/{id} : pour modifier une reservation
 - /admin/reservation/delete/{id} : pour supprimer une reservation
 - /admin/user/new-admin : pour creer un nouvel admin
+
+### Pour un user 
+- /user/new : pour creer un utilisateur
+- /user/{id} : pour voir l'utilisateur (en mode admin)
+- /user/{id}/edit : pour modifier l'utilisateur (en mode admin)
+- /user/{id}/delete : pour supprimer un utilisateur (en mode admin)
+  
+### Pour les reservation : 
+- /reservation/new : pour en creer une
+- /reservation/id : pour voir la reservation et ses details (seulement en mode admin)
 
 
