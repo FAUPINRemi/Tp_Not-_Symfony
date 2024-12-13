@@ -1,0 +1,39 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: 'API Documentation'
+            description: "Documentation de l'API pour votre projet"
+            version: '1.0.0'
+    areas:
+        default:
+            path_patterns: ['^/api']
+            host_patterns: []
+            documentation:
+                info:
+                    title: 'API'
+                    description: 'Documentation de l''API'
+                    version: '1.0.0'
+        admin:
+            path_patterns: ['^/admin']
+            host_patterns: []
+            documentation:
+                info:
+                    title: 'Admin API'
+                    description: 'Documentation de l''API Admin'
+                    version: '1.0.0'
+        user:
+            path_patterns: ['^/user']
+            host_patterns: []
+            documentation:
+                info:
+                    title: 'User API'
+                    description: 'Documentation de l''API User'
+                    version: '1.0.0'
+        reservation:
+            path_patterns: ['^/reservation']
+            host_patterns: []
+            documentation:
+                info:
+                    title: 'Reservation API'
+                    description: 'Documentation de l''API Reservation'
+                    version: '1.0.0'

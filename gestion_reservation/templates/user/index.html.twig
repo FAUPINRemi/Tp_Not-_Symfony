@@ -1,0 +1,65 @@
+{# filepath: templates/user/reservations.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Réservations{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Réservations à venir</h2>
+        <div class="future-reservations">
+            {% if futureReservations is empty %}
+                <p>Aucune réservation future</p>
+            {% else %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Créneau</th>
+                            <th>Événement</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reservation in futureReservations %}
+                            <tr>
+                                <td>{{ reservation.date|date('d/m/Y') }}</td>
+                                <td>{{ reservation.timeSlot }}</td>
+                                <td>{{ reservation.eventName }}</td>
+                                <td>
+                                    <a href="{{ path('user_reservation_cancel', {'id': reservation.id}) }}" 
+                                       class="btn btn-danger">Annuler</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+
+        <h2>Historique des réservations</h2>
+        <div class="past-reservations">
+            {% if pastReservations is empty %}
+                <p>Aucun historique</p>
+            {% else %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Créneau</th>
+                            <th>Événement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reservation in pastReservations %}
+                            <tr>
+                                <td>{{ reservation.date|date('d/m/Y') }}</td>
+                                <td>{{ reservation.timeSlot }}</td>
+                                <td>{{ reservation.eventName }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

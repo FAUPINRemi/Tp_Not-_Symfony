@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Réservation - Admin{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Créer une nouvelle réservation</h1>
+
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                    <div class="form-group mb-3">
+                        {{ form_row(form.date, {
+                            'attr': {'class': 'form-control'},
+                            'label': 'Date'
+                        }) }}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        {{ form_row(form.timeSlot, {
+                            'attr': {'class': 'form-control'},
+                            'label': 'Créneau horaire'
+                        }) }}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        {{ form_row(form.eventName, {
+                            'attr': {'class': 'form-control'},
+                            'label': 'Nom de l\'événement'
+                        }) }}
+                    </div>
+
+                    <div class="form-group mb-3">
+                        {{ form_row(form.user, {
+                            'attr': {'class': 'form-control'},
+                            'label': 'Utilisateur'
+                        }) }}
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Créer la réservation</button>
+                        <a href="{{ path('admin_reservations_list') }}" class="btn btn-secondary">Retour à la liste</a>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
