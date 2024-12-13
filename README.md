@@ -3,9 +3,32 @@
 (Le code est dans la branche master)
 
 ## Pour démarer le projet : 
+-Installer Symfony CLI
+-Faire un git clone du projet
+Cloner le projet
+cd gestion_reservation
 
-- Faire un git clone du projet
-- Dans la console au niveau de /gestion_reservation (a la racine du projet)  taper la commande : ``` symfony server:start```
+# Installer les dépendances
+composer install
+
+# Copier le fichier .env
+cp .env .env.local
+
+# Modifier le fichier .env.local avec vos informations
+DATABASE_URL="mysql://root:@127.0.0.1:3306/reservation?serverVersion=16&charset=utf8"
+
+# Créer la base de données
+php bin/console doctrine:database:create
+
+# Créer les migrations
+php bin/console make:migration
+
+# Exécuter les migrations
+php bin/console doctrine:migrations:migrate
+
+# Démarrer le serveur Symfony
+symfony server:start
+
 - Une fois le projet démarré tapé l'url : *http://127.0.0.8:8000/register* et creer sont user (pr defaut il aura le role ROLE_USER) pour lui appliquer le role ROLE_ADMIN il faudras le modifier dans la base de donnée
 - Ensuite aller sur *http://127.0.0.8:8000/login* et se connecter
 - pour se déconnecter taper l'url : *http://127.0.0.8:8000/logout*
@@ -30,10 +53,11 @@
 - /admin/user/new-admin : pour creer un nouvel admin
 
 ### Pour un user 
-- /user/new : pour creer un utilisateur
+- /user/new : pour creer un utilisateur (en mode admin)
 - /user/{id} : pour voir l'utilisateur (en mode admin)
 - /user/{id}/edit : pour modifier l'utilisateur (en mode admin)
 - /user/{id}/delete : pour supprimer un utilisateur (en mode admin)
+- /user/ : pour avoir les details des reservation de l'utilisateur
   
 ### Pour les reservation : 
 - /reservation/new : pour en creer une
